@@ -1,7 +1,7 @@
 
 /*jshint esversion: 8 */
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
@@ -12,6 +12,7 @@ const { loadData } = require('./util/import-mongo/index');
 
 const app = express();
 const port = 3060;
+
 
 // Middleware
 app.use(cors());
@@ -31,6 +32,7 @@ connectToDatabase()
 // Auth routes
 const authRoutes = require('./routes/authRoutes');
 
+
 // Items API - Task 1
 const secondChanceItemsRoutes = require('./routes/secondChanceItemsRoutes');
 
@@ -48,12 +50,12 @@ app.use(pinoHttp({ logger }));
 // Auth routes
 app.use('/api/auth', authRoutes);
 
+
 // Items API - Task 2
 app.use('/api/secondchance/items', secondChanceItemsRoutes);
 
 // Search routes
 app.use('/api/search', searchRoutes);
-
 // Global Error Handler
 app.use((err, req, res, next) => {
     console.error(err);
