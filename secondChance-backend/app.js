@@ -13,7 +13,6 @@ const { loadData } = require('./util/import-mongo/index');
 const app = express();
 const port = 3060;
 
-
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -55,7 +54,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/secondchance/items', secondChanceItemsRoutes);
 
 // Search routes
-app.use('/api/search', searchRoutes);
+app.use('/api/secondchance/search', searchRoutes);
 // Global Error Handler
 app.use((err, req, res, next) => {
     console.error(err);
